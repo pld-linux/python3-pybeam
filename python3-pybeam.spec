@@ -7,7 +7,7 @@
 Summary:	Python module to parse Erlang BEAM files
 Name:		python3-%{module}
 Version:	0.7
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pybeam/
