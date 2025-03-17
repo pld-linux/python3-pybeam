@@ -7,7 +7,7 @@
 Summary:	Python module to parse Erlang BEAM files
 Name:		python3-%{module}
 Version:	0.7
-Release:	3
+Release:	4
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pybeam/
@@ -44,7 +44,11 @@ Dokumentacja API modułu Pythona %{module}.
 %setup -q -n %{module}-%{version}
 
 %build
-%py3_build %{?with_tests:test} %{?with_doc:build_sphinx}
+%py3_build %{?with_tests:test}
+
+%if %{with doc}
+sphinx-build-3 -b html doc/ build/doc
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -71,5 +75,5 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with doc}
 %files apidocs
 %defattr(644,root,root,755)
-%doc build-3/sphinx/html/*
+%doc build/doc/*
 %endif
